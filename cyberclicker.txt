@@ -1,8 +1,8 @@
 Let's make a game!
     name:Cyber Clicker
     by:PaulGamerBoy101
-    created:04/09/2024
-    updated:04/09/2024
+    created:4/9/2024
+    updated:4/9/2024
     version:2
 
 Settings
@@ -10,15 +10,15 @@ Settings
     building cost increase:115%
     building cost refund:50%
     spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
-    stylesheet:https://raw.githubusercontent.com/PaulGamerBoy101/Cyber-Clicker-IGM/refs/heads/main/cyber.css
+    stylesheet:https://cyber-clicker-version-2-9763704.codehs.me/style.css
 
 Buttons
     *computerchipButton
         name:Make a Computer Chip
         desc:Click this little computer chip to get more computer chips!
+        on click:anim icon wobble
+        on click:yield 1 computerchip
         on click:
-            anim icon wobble
-            yield 1 computerchip
             if (have goldenTouch and chance(1%))
                 yield 1 goldenChip
             end
@@ -28,6 +28,9 @@ Buttons
         icon class:shadowed
         tooltip origin:bottom
         tooltip class:red
+    *versionNumber
+        name:Version 2.0
+        text:Version 2.0
 
 Resources
     *computerchip|computerchips
@@ -37,7 +40,7 @@ Resources
         class:noBackground
         show earned
     *goldenChip|goldenChips
-        name:Golden Chip|Golden Chips
+        name:Golden chip|Golden chips
         desc:These shiny computer chips are terribly rare, terribly precious and terribly delicious!
         icon:https://codehs.com/uploads/779e3bd443d7d99e32ddd5e70eb155b0
         class:noBackground
@@ -45,7 +48,6 @@ Resources
 
 Shinies
     *luckyChip
-        name:Lucky Chip
         on click:
             log Woop
             $boost=1
@@ -53,13 +55,13 @@ Shinies
                 $boost=4
             end
             if (chance(25%))
-                //get at least 7, or between 1 and 3 minutes of our computer chip production
+                //get at least 7, or between 1 and 3 minutes of our bunny production
                 $amount=max(7,random(computerchips:ps*60*1,computerchips:ps*60*3))*$boost
-                toast The lucky computer chip grants you [$amount] computer chips.
+                toast The lucky computer chip grants you[$amount] computerchips.
                 yield $amount computerchips
             else
                 $amount=1*$boost
-                toast The lucky computer chip grants you [$amount] Golden Chip[s?$amount]!
+                toast The lucky computer chip grants you[$amount] Golden Chip[s?$amount]!
                 yield $amount goldenChip
             end
         movement:onRight moveLeft fade bounce:0.05
@@ -70,30 +72,30 @@ Shinies
 
 Upgrades
     *goldenTouch
-        name:Golden Touch
-        desc:The delicate art of finding computer chips made of precious metals.<.>1% chance of gaining 1 golden chip per click.
+        name:Golden touch
+        desc:The delicate art of finding computer chips made of precious metals.Effect:<.>1% chance of gaining 1 golden chip per bunny click
         icon:icons[2,5]
         cost:1 goldenChip
         req:1 goldenChip:earned
         passive:increase computerchip yield of computerchipButton by 2
     *powerIncrease
-        name:Power Increase
-        desc:An additional 2 computer chips per manual click.<.>+2 computer chips per click.
+        name:Power increase
+        desc:An Additional 2 Computer Chips per Manual Click.Effect:+2 computerchips per click
         icon:https://codehs.com/uploads/cdf8a742548c061a5b01270e6fcef88e
         cost:1000 computerchip, 2 goldenChip
         passive:increase computerchip yield of computerchipButton by 2
         req:500 computerchip:earned
     *superClick
         name:Super Click
-        desc:An additional 5 computer chips per click & increased frequency of lucky chips!
+        desc:An Additional 5 Computer Chips Per Click & Increased Frequecy of Lucky Chips!
         icon:https://codehs.com/uploads/10b99044b80184b4b7538242eb5557aa
         cost:2 goldenChips, 5000 computerchips
         passive:increase computerchip yield of computerchipButton by 5
         passive:multiply frequency of luckyChip by 0.5
         req:3000 computerchips:earned
     *superClick2
-        name:Super Click 2
-        desc:An additional 500 computer chips per click & increased frequency of lucky chips!
+        name:Super Click2
+        desc:An Additional 500 Computer Chips Per Click & Increased Frequecy of Lucky Chips!
         icon:https://codehs.com/uploads/a2e6d9a1410bd21a0a3c4a0c27e45a9b
         cost:2 goldenChips, 10000 computerchips
         passive:increase computerchip yield of computerchipButton by 500
@@ -101,27 +103,27 @@ Upgrades
         req:3000 computerchips:earned
     *internetAccess
         name:Internet Access
-        desc:You have gained access to the internet!<.>Unlocks new buildings.
+        desc:You Have Gained Access to The Internet!Effect:<.>unlocks bew buildings
         icon:https://codehs.com/uploads/c8e8b6146bb7063e6409ccd3e6c46444
         cost:10 goldenChips
         req:5 goldenChips:earned
     *speedIncrease
-        name:Increased Processing Speed
-        desc:I'm late! I'm late! For a very important date!<.>Lucky computer chips appear 30% more often.
+        name:Increased Proccessing Speed
+        desc:I'm late! I'm late! For a very important date!Effect:<.>lucky computerchips appear 30% more often
         icon:https://codehs.com/uploads/6c923fa9256eef5a9ad4f0b679a86f37
         passive:multiply frequency of luckyChip by 0.7
-        passive:increase computerchip yield of computerchipButton by 5
         cost:5 goldenChips
         req:1 goldenChips:earned
+        passive:increase computerchip yield of computerchipButton by 5
     *recharge
         name:Recharge
-        desc:A new battery with increased power.<.>Lucky computer chip effects are 4 times more powerful!
+        desc:A new battery with increased power.Effect:<.>lucky computer chip effects are 4 times more powerful!
         icon:https://codehs.com/uploads/98085a1eb64aeb5186f1519176796a9c
         cost:100 goldenChips
         req:30 goldenChips:earned
     *moonPower
         name:Moon Power
-        desc:The royal botanists in your moon citadels have found new ways of making computer chips in reduced gravity!<.>Moon citadels now produce 1 golden computer chip every 100 seconds.
+        desc:The royal botanists in your moon citadels have found new ways of making copmuter chips in reduced gravity!Effect:<.>moon citadels now produce 1 golden computer chip every 100 seconds
         icon:https://codehs.com/uploads/c56c5bba4c2fa5754a33f7d8a3906eff
         req:50 goldenChips:earned, 1 citadel
         cost:100 goldenChips
@@ -135,87 +137,87 @@ Achievements
         req:1 computerchip
         icon:icons[2,4] icons[0,2] icons[0,6]
     *computerchipAchiev2
-        name:Achievement 2
-        desc:Have 1000 computer chips.
+        name:Acheivement 2
+        desc:Have 1000 copmuter chips.
         req:1000 computerchip
         icon:icons[2,4] icons[0,3] icons[0,6]
     *computerchipAchiev3
         name:Achievement 3
         desc:Have 1000000 computer chips.
-        req:1000000 computerchip
+        req:10000000 computerchip
         icon:icons[2,4] icons[0,4] icons[0,6]
     *clickAchiev1
-        name:That Tickles
-        desc:Click the computer chip 10 times.
-        req:10 computerchipButton:clicks
+        name:That tickles
+        desc:Click the copmuter chip 10 times.
+        req:10 computerchipButton clicks
         icon:icons[2,2] icons[0,2] icons[0,6]
     *clickAchiev2
-        name:Don't Squeeze Me I'll Fart
+        name:Don't squeeze me I'll fart
         desc:Click the computer chip 100 times.
-        req:100 computerchipButton:clicks
+        req:100 computerchipButton clicks
         icon:icons[2,2] icons[0,3] icons[0,6]
     *clickAchiev3
-        name:You're Cruising for a Bruising, Dude
+        name:You're cruising for a bruising, dude
         desc:Click the computer chip 2000 times.
-        req:2000 computerchipButton:clicks
+        req:2000 computerchipButton clicks
         icon:icons[2,2] icons[0,4] icons[0,6]
     *chipPsAchiev1
-        name:Be Vewy Vewy Quiet
-        desc:Produce 10 computer chips per second.
-        req:10 computerchips:ps
+        name:Be vewy vewy quiet
+        desc:Produce 10 copmuter chips per second.
+        req:10 computerchips per second
         icon:icons[2,3] icons[0,2] icons[0,6]
     *chipPsAchiev2
-        name:Hop and a Skip
+        name:Hop and a skip
         desc:Produce 1000 computer chips per second.
-        req:1000 computerchips:ps
+        req:1000 computerchips per second
         icon:icons[2,3] icons[0,3] icons[0,6]
     *chipPsAchiev3
-        name:Go Forth and Multiply
+        name:Go forth and multiply
         desc:Produce 100000 computer chips per second.
-        req:100000 computerchips:ps
+        req:100000 computerchips per second
         icon:icons[2,3] icons[0,4] icons[0,6]
 
 Buildings
     *TEMPLATE
         on click:anim glow
-    *powersupply|powersupplies
+    *powersupply|powersupply
         name:Power Supply|Power Supplies
-        desc:A Power Supply.<.>Produces 1 computer chip every 10 seconds.
+        desc:A Power Supply.Effect:<.>Produces 1 cmoputerchip every 10 seconds.
         icon:https://codehs.com/uploads/1c00da8bc04d49e87cf051d70eb405ed
         cost:15 computerchips
         on tick:yield 0.1 computerchip
         unlocked
     *motherboard|motherboards
         name:Motherboard|Motherboards
-        desc:A Motherboard.<.>Produces 1 computer chip every 2 seconds.
+        desc:A Motherboard.Effect:<.>Produces 1 computerchip every 2 seconds.
         icon:https://codehs.com/uploads/02c92e01aed36982e7536f9ba1bab887
         cost:100 computerchips
         on tick:yield 0.5 computerchips
         req:100 computerchips:earned
     *laptop|laptops
         name:Laptop|Laptops
-        desc:A Laptop!<.>Produces 5 computer chips per second.
+        desc:A Laptop!Effect:<.>Produces 5 computerchips per second.
         icon:https://codehs.com/uploads/fffec171f138b741536fb27b331e600c
         cost:600 computerchips
         on tick:yield 5 computerchips
         req:600 computerchips:earned
     *computertower|computertowers
         name:Computer Tower|Computer Towers
-        desc:A much faster computer but it is nearly impossible to use without any accessories.<.>Produces 12 computer chips per second.
+        desc:A much faster computer but it is nearly imposible to use without any Accessories.Effect:<.>Produces 12 computerchips per second.
         icon:https://codehs.com/uploads/3bc6ebc8b57d6ab95c5e65efffe8e334
         cost:4000 computerchips
         on tick:yield 50 computerchips
         req:4000 computerchips:earned
     *monitor|monitors
         name:Monitor|Monitors
-        desc:A nice computer monitor to view content from your computer tower!<.>Produces 90 computer chips per second.
+        desc:A nice Computer Monitor to View Content From Your Computer Tower!Effect:<.>Produces 90 computerchips per second.
         icon:https://codehs.com/uploads/136ee76f1a4a2a33653a0945f73043b9
         cost:20000 computerchips
         on tick:yield 90 computerchips
         req:20000 computerchips:earned
     *computermouse|computermice
         name:Computer Mouse|Computer Mice
-        desc:A mouse to help control your computer tower!<.>Produces 170 computer chips per second.
+        desc:A mouse to help controll your computer tower!Effect:<.>Produces 170 computerchips per second.
         icon:https://codehs.com/uploads/a428b8cedc983e7204c8c8243eeb85a3
         cost:20000 computerchips
         on tick:yield 170 computerchips
@@ -223,7 +225,7 @@ Buildings
         req:19000 computerchips:earned
     *bluetoothmouse|bluetoothmice
         name:Bluetooth Mouse|Bluetooth Mice
-        desc:A Bluetooth Mouse is more efficient than a wired mouse.<.>Produces 200 computer chips per second, adds an additional 7 chips per manual click.
+        desc:A Bluetooth Mouse is More efficient than a Wired Mouse.Effect:<.>Produces 200 copmuterships per second, adds an aditional 7 chips per manual click.
         icon:https://codehs.com/uploads/7458e98b313ad673422745b47f450a1d
         cost:9000 computerchips
         on tick:yield 200 computerchips
@@ -231,21 +233,21 @@ Buildings
         req:8500 computerchips:earned
     *keyboard|keyboards
         name:Keyboard|Keyboards
-        desc:With a keyboard along with your mouse you now have complete control of your computer tower!<.>Produces 300 computer chips per second.
+        desc:With a Keyboard along with your mouse you now have complete control of your computer tower!Effect:<.>Produces 300 computerchips per second.
         icon:https://codehs.com/uploads/3a3411897ae59e615649f86f3f63b269
         cost:200000 computerchips, 1 goldenChip
         on tick:yield 300 computerchips
         req:200000 computerchips:earned and internetAccess
     *computerserver|computerservers
-        name:Computer Server Room|Computer Server Rooms
-        desc:A Computer Server Room.<.>Produces 1000 computer chips per second.
+        name:Computer Server Room|Computer Server Room
+        desc:A Computer Server Room.Effect:<.>Produces 1000 computer chips per second.
         icon:https://codehs.com/uploads/d9e5ebfda968ba2bc151dd2cfa2418f7
-        cost:3000000 computerchips, 4 goldenChips
+        cost:3000000 computerchips, 4 goldenChip
         on tick:yield 1000 computerchips
         req:3000000 computerchips:earned and internetAccess
     *citadel|citadels
         name:Moon Citadel|Moon Citadels
-        desc:An ornate palace standing on the moon, ruled by cyber kings and queens and staffed with royal cyber guards.<.>Produces 4000 computer chips per second.
+        desc:An ornate palace standing on the moon, ruled by cyber kings and queens and staffed with royal cyber guards.Effect:<.>Produces 4000 computer chips per second.
         icon:https://codehs.com/uploads/709b359fbedae7589834867fe8f903ab
         cost:70000000 computerchips, 16 goldenChips
         on tick:
@@ -257,7 +259,7 @@ Buildings
     *fortress
         name:Cyber Fortress
         text:Cyber Fortress ([this]%)
-        desc:A huge cyber castle. A monument to the adventurous spirit of cyberkind, which will take time and effort to complete. The fortress is [this]% complete.
+        desc:A huge cyber castle. A monument to the adventurous spirit of cyberkind, which will take time and effort to complete.The fortress is [this]% complete.
         icon:https://codehs.com/uploads/bce73a845d2b0e2294d828845c0e7936
         cost:300000000 computerchips, 100 goldenChips
         req:70000000 computerchips:earned and internetAccess
