@@ -16,12 +16,13 @@ Buttons
     *computerchipButton
         name:Make a Computer Chip
         desc:Click this little computer chip to get more computer chips!
-        on click:anim icon wobble
-        on click:yield 1 computerchip
         on click:
+            anim icon wobble
+            yield 1 computerchip
             if (have goldenTouch and chance(1%))
                 yield 1 goldenChip
             end
+        end
         icon:https://codehs.com/uploads/a781def7fdf562bfa8e49b6ddfbf1fba
         no text
         class:bigButton hasFlares
@@ -64,6 +65,7 @@ Shinies
                 toast The lucky computer chip grants you[$amount] Golden Chip[s?$amount]!
                 yield $amount goldenChip
             end
+        end
         movement:onRight moveLeft fade bounce:0.05
         frequency:60
         frequency variation:30
@@ -255,6 +257,7 @@ Buildings
             if (have moonPower)
                 yield 0.01 goldenChip
             end
+        end
         req:50000000 computerchips:earned and internetAccess
     *fortress
         name:Cyber Fortress
