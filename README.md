@@ -1,2 +1,2 @@
-# Cyber-Clicker-IGM
-The Official Repository for the IGM Version of Cyber Clicker
+# Cyber-Clicker-WEB
+The Official Repository for the Web Version of Cyber Clicker
