@@ -1,195 +1,164 @@
-/* Game container with a cosmic nebula background */
-#game {
-    background-color: #05051a; /* Deep space black */
-    color: #aaffff; /* Soft teal neon */
-    font-family: 'Exo 2', sans-serif; /* Sleek futuristic font */
-    padding: 25px;
-    min-height: 100vh;
-    background-image: linear-gradient(135deg, #1a0033, #000000), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-    background-blend-mode: overlay;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-/* Container boxes for game elements */
 .box {
-    background: rgba(26, 0, 51, 0.9); /* Dark purple tint */
-    border: 3px solid #4affff; /* Bright teal border */
-    border-radius: 15px;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 0 0 20px rgba(74, 255, 255, 0.6); /* Teal glow */
+    text-align: center;
+    padding: 0;
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.5);
+}
+
+.thing, .box-header, .box-footer, .box-bit {
+    background: rgba(10, 20, 50, 0.9); /* Dark starry void */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4), 2px 2px 3px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 153, 255, 0.7) inset;
+}
+.box-bit {
+    border-radius: 8px;
+}
+
+.box-header {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 6px;
+}
+.box-footer {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 6px;
+}
+
+#box-main {
+    left: 0;
+    top: 0;
+    bottom: 0;
     overflow: hidden;
-}
-
-/* Full-width boxes */
-.fullWidth {
-    width: 100%;
-}
-
-/* General styling for game items */
-.thing {
-    background: rgba(51, 0, 102, 0.95); /* Deeper purple */
-    border: 2px solid #ff4aff; /* Vibrant purple border */
-    border-radius: 12px;
-    padding: 12px;
-    margin: 8px;
-    transition: all 0.25s ease;
-}
-
-.thing:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 0 25px rgba(255, 74, 255, 0.8); /* Purple glow */
-}
-
-/* No background for specific resources */
-.noBackground {
-    background: none;
-    border: none;
-}
-
-/* Enhanced button styling */
-.bigButton {
-    background: radial-gradient(circle, #ff4aff, #4affff); /* Purple to teal gradient */
-    border: 3px solid #ffffff; /* Crisp white outline */
-    border-radius: 15px;
-    padding: 18px;
-    font-size: 1.3em;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.4s ease;
-}
-
-.bigButton:hover {
-    background: radial-gradient(circle, #4affff, #ff4aff); /* Reverse gradient */
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
-}
-
-/* Holographic pulse effect */
-.hasFlares {
-    position: relative;
-}
-
-.hasFlares::before {
-    content: '';
+    width: 60%;
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(74, 255, 255, 0.3), transparent 70%);
-    animation: pulse 5s infinite;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 51, 102, 0.3));
+}
+#box-res.fullWidth {
+    width: 100%;
+    top: 5%;
+    height: 5%;
+    min-height: 36px;
+    z-index: 100;
+    position: absolute;
+}
+#box-buttons {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+#box-store {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    position: absolute;
+    background: rgba(0, 20, 40, 0.5);
+}
+#box-buildings, #box-upgrades {
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    right: 0%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-bottom: 52px; /* Accommodate info/settings buttons */
+    position: absolute;
+}
+#box-buildings {
+    right: 50%;
+}
+
+#box-buildings {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.4) 30%);
+}
+#box-upgrades {
+    background: rgba(0, 30, 60, 0.6);
+}
+
+#bulkDisplay {
+    margin: -12px 26px 5px 26px;
+}
+
+.thing {
+    display: inline-block;
+    padding: 0;
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid #0066cc;
+}
+.thing:hover, .thing.lit {
+    background: rgba(0, 77, 153, 0.95);
+    box-shadow: 0 0 10px #00ccff;
+}
+.thing.cantAfford {
+    opacity: 0.5;
+    filter: grayscale(50%);
+}
+.upgrade.cantAfford {
+    box-shadow: 0 0 8px rgba(0, 51, 102, 0.8);
+    border-radius: 8px;
+}
+.upgrade.cantAfford:hover {
+    box-shadow: 0 0 12px rgba(0, 102, 204, 0.9);
+}
+.upgrade.owned, .achiev.owned {
+    background: rgba(0, 102, 204, 0.95);
+    color: #ffffff;
+}
+.thing-text, .thing-costs {
+    font-weight: bold;
+    text-shadow: 0 0 3px #00ccff;
+}
+
+.building {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: block;
+    margin-right: 0;
+    font-size: 15px;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 102, 204, 0.3));
+}
+
+.fullWidth {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    z-index: 10;
+}
+#game .fullWidth {
+    height: auto;
+    min-height: auto;
+}
+.fullWidth, .fullWidth:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 5px #0066cc;
+}
+.fullWidth:before, .fullWidth:after {
+    content: '';
+    height: 2px;
+    background: linear-gradient(to right, rgba(0, 153, 255, 0) 0%, rgba(0, 153, 255, 0.4) 50%, rgba(0, 153, 255, 0) 100%);
+    position: absolute;
+    left: 0;
+    right: 0;
     z-index: -1;
 }
-
-@keyframes pulse {
-    0% { transform: scale(0); opacity: 1; }
-    100% { transform: scale(1.5); opacity: 0; }
+.fullWidth:before {
+    top: -2px;
+}
+.fullWidth:after {
+    bottom: -2px;
 }
 
-/* Icon styling with hover effect */
-.thing-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    transition: filter 0.3s;
+.fullWidth .thing-icon {
+    margin-top: -16px;
+    margin-bottom: -16px;
+}
+.fullWidth .thing-text {
+    margin-top: -5px;
+    margin-bottom: -5px;
 }
 
-.shadowed {
-    filter: drop-shadow(0 0 8px #ff4aff); /* Purple shadow */
+#game.filtersOn .thing-icon {
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.6));
 }
-
-.thing-icon:hover {
-    filter: brightness(1.5);
-}
-
-/* Unique wobble animation */
-@keyframes wobble {
-    0% { transform: skewX(0deg); }
-    25% { transform: skewX(3deg); }
-    50% { transform: skewX(0deg); }
-    75% { transform: skewX(-3deg); }
-    100% { transform: skewX(0deg); }
-}
-
-.wobble {
-    animation: wobble 0.6s ease;
-}
-
-/* Achievement and building glow */
-@keyframes cosmicGlow {
-    0% { box-shadow: 0 0 10px #4affff; }
-    50% { box-shadow: 0 0 30px #ff4aff; }
-    100% { box-shadow: 0 0 10px #4affff; }
-}
-
-.glow {
-    animation: cosmicGlow 2s infinite;
-}
-
-/* Tooltip with holographic effect */
-.tooltip {
-    background: rgba(26, 0, 51, 0.95);
-    border: 2px solid #ff4aff;
-    border-radius: 10px;
-    color: #aaffff;
-    padding: 12px;
-    box-shadow: 0 0 20px rgba(255, 74, 255, 0.7);
-    font-size: 0.9em;
-}
-
-/* Red tooltip variant */
-.red {
-    border-color: #ff6666;
-    box-shadow: 0 0 20px rgba(255, 102, 102, 0.7);
-}
-
-/* Shiny item styling */
-.shiny {
-    filter: hue-rotate(90deg) drop-shadow(0 0 15px #4affff);
-    transition: transform 0.7s ease;
-}
-
-.shiny:hover {
-    transform: rotate(5deg) scale(1.1);
-}
-
-/* Log area with scroll */
-.log {
-    background: rgba(51, 0, 102, 0.9);
-    border: 2px solid #4affff;
-    border-radius: 15px;
-    padding: 15px;
-    max-height: 250px;
-    overflow-y: auto;
-    font-size: 0.85em;
-}
-
-/* Toast notification */
-.toast {
-    background: rgba(74, 255, 255, 0.95); /* Teal glow */
-    color: #05051a;
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 0 15px rgba(74, 255, 255, 0.8);
-    font-weight: bold;
-}
-
-/* Unaffordable items effect */
-#game.filtersOn .thing.cantAfford.notOwned {
-    filter: grayscale(80%) opacity(0.5);
-    transition: all 0.3s;
-}
-
-/* Lighting states */
-.lit {
-    filter: brightness(1.4) contrast(1.2);
-}
-
-.dim {
-    filter: brightness(0.6) contrast(0.8);
-}
-
-/* Load futuristic font */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
