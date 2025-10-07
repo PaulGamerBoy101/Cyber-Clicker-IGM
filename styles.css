@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: url('https://i.pinimg.com/originals/d4/81/f3/d481f3c72e283309071f79e01b05c06d.gif') center/cover no-repeat fixed;
+    color: #00fff2;
+}
+
+#game {
+display: flex;
+max-width: 1600px;
+margin: 0 auto;
+padding: 20px;
+gap: 20px;
+}
+
+/* Left Column (Clicker + Counters) */
+.left-side {
+    flex: 0 0 400px; /* fixed width for left column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Top Info Card */
+.infoCard {
+    display: inline-block;      /* hug content */
+    background-color: rgba(0, 0, 0, 1); /* solid black */
+    padding: 5px 10px;          /* space around text */
+    border-radius: 8px;
+    color: #00ffcc;
+    margin: 5px 0;              /* spacing between lines */
+    box-shadow: 0 0 8px #00ffcc;
+}
+
+.infoCard h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+
+
+.infoCard .resource {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Click Button */
+.bigButton {
+    margin: 20px 0;
+    background: radial-gradient(circle, #00fff2 0%, #006d6b 100%);
+    border: none;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    font-size: 1em;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 20px #00fff2, inset 0 0 10px #003f3e;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.bigButton.wobble {
+    animation: wobble 0.3s ease;
+}
+
+/* Small cyber-style buttons for export/import */
+.bigButtonSmall {
+    background: radial-gradient(circle, #00fff2 0%, #006d6b 100%);
+    border: 2px solid #00fff2;
+    border-radius: 12px;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00fff2, inset 0 0 5px #003f3e;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.bigButtonSmall:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00fff2, inset 0 0 6px #004c4b;
+}
+
+/* Hide the file input */
+#importFile {
+display: none;
+}
+
+.floatingGoldenChip {
+    font-size: 2.5em;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s, top 0.3s, left 0.3s;
+    color: gold;
+}
+.floatingGoldenChip:hover {
+    transform: scale(1.5) rotate(10deg);
+}
+
+.clickInfoCard {
+    display: inline-block;
+    background-color: rgba(0,0,0,1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #00ffcc;
+    margin-top: 10px;
+    text-align: left;
+    box-shadow: 0 0 8px #00ffcc;
+}
+
+
+.bigButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00fff2, inset 0 0 12px #004c4b;
+}
+
+/* Right Column (Scrollable Panels) */
+.right-side {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+/* Store / Upgrades Panels */
+#buildings, #upgrades {
+flex: 1;
+background: rgba(0, 0, 0, 1); /* fully solid black */
+border: 2px solid #00fff2;
+border-radius: 10px;
+padding: 10px;
+max-height: 600px;
+overflow-y: auto; /* scroll independently */
+}
+
+/* Panel Headers */
+#buildings h3, #upgrades h3 {
+margin-top: 0;
+margin-bottom: 10px;
+color: #00fff2;
+font-weight: 700;
+}
+
+/* Individual items */
+.upgrade, .building {
+    background: #003f3e;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upgrade:hover, .building:hover {
+    background: #006d6b;
+}
+
+.cost {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Achievements Panel */
+#achievements-container {
+max-width: 1600px;
+margin: 20px auto;
+padding: 10px;
+}
+
+#achievements {
+background: rgba(0, 0, 0, 1); /* fully solid */
+border: 2px solid #00fff2;
+border-radius: 10px;
+padding: 10px;
+color: #00fff2;
+max-height: 200px;
+overflow-y: auto; /* scroll idependently if needed */
+}
+
+#achievements h3 {
+margin-top: 0;
+margin-bottom: 10px;
+font-weight: 700;
+}
+
+/* Achievement items */
+.achievement {
+    background: #002b2a;
+    margin: 5px 0;
+    padding: 6px;
+    border-radius: 6px;
+    color: #00fff2;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Clicker</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="game">
+    <!-- Left Column -->
+    <div class="left-side">
+        <!-- Top Info Cards -->
+        <div class="infoCard"><h1>Cyber Clicker</h1></div>
+        <div class="infoCard">Computer Chips: <span id="computerchips">0</span></div>
+        <div class="infoCard">Golden Chips: <span id="goldenchips">0</span></div>
+        <div class="infoCard">Chips/sec: <span id="chipPS">0</span></div>
+
+        <!-- Click Button -->
+        <button id="chipButton" class="bigButton">💻 Make a Computer Chip</button>
+
+        <!-- Click Info Card -->
+        <div class="clickInfoCard">
+            <div>Click adds: <span id="clickEffect">1</span> Computer Chips</div>
+            <div>Click adds: <span id="clickGoldenEffect">0</span> Golden Chips</div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Right Column -->
+    <div class="right-side">
+        <!-- Store Panel -->
+        <div id="buildings">
+            <h3>Store 🏙️</h3>
+            <div class="items"></div> <!-- items appended here -->
+        </div>
+
+        <!-- Upgrades Panel -->
+        <div id="upgrades">
+            <h3>Upgrades ⚙️</h3>
+            <div class="items"></div> <!-- items appended here -->
+        </div>
+    </div>
+</div>
+
+<!-- Achievements Panel -->
+<div id="achievements-container">
+    <div id="achievements">
+        <h3>Achievements 🏆</h3>
+    </div>
+</div>
+
+<!-- Export / Import Section -->
+<div id="export-import-container" style="margin: 20px auto; max-width: 400px; display: flex; justify-content: center; gap: 10px;">
+    <button id="exportProgress" class="bigButtonSmall">💾 Export</button>
+    <input type="file" id="importFile" accept=".json" style="display: none;">
+    <button id="importProgress" class="bigButtonSmall">📂 Import</button>
+    <!-- Reset Button -->
+    <button id="resetProgress" class="bigButtonSmall">Reset</button>
+</div>
+
+
+
+
+<script src="game.js"></script>
+</body>
+</html>
