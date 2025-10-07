@@ -1,26 +1,26 @@
 .box {
     text-align: center;
     padding: 0;
-    box-shadow: 0 0 8px rgba(0, 102, 204, 0.5);
+    box-shadow: none;
 }
 
 .thing, .box-header, .box-footer, .box-bit {
-    background: rgba(10, 20, 50, 0.9); /* Dark starry void */
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4), 2px 2px 3px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 153, 255, 0.7) inset;
+    background: rgb(10, 20, 50);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(0, 153, 255, 0.5) inset;
 }
 .box-bit {
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .box-header {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    margin-bottom: 6px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 4px;
 }
 .box-footer {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 4px;
 }
 
 #box-main {
@@ -30,13 +30,12 @@
     overflow: hidden;
     width: 60%;
     position: absolute;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 51, 102, 0.3));
 }
 #box-res.fullWidth {
     width: 100%;
     top: 5%;
     height: 5%;
-    min-height: 36px;
+    min-height: 32px;
     z-index: 100;
     position: absolute;
 }
@@ -53,7 +52,6 @@
     bottom: 0;
     width: 40%;
     position: absolute;
-    background: rgba(0, 20, 40, 0.5);
 }
 #box-buildings, #box-upgrades {
     top: 0;
@@ -62,7 +60,7 @@
     right: 0%;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-bottom: 52px; /* Accommodate info/settings buttons */
+    padding-bottom: 48px; /* this is to accommodate the info and settings buttons */
     position: absolute;
 }
 #box-buildings {
@@ -70,54 +68,48 @@
 }
 
 #box-buildings {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.4) 30%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.25) 20%);
 }
 #box-upgrades {
-    background: rgba(0, 30, 60, 0.6);
+    background: rgba(0, 20, 40, 0.3);
 }
 
 #bulkDisplay {
-    margin: -12px 26px 5px 26px;
+    margin: -11px 24px 4px 24px;
 }
 
 .thing {
     display: inline-block;
     padding: 0;
-    margin: 3px;
+    margin: 2px;
     cursor: pointer;
-    border: 1px solid #0066cc;
 }
 .thing:hover, .thing.lit {
-    background: rgba(0, 77, 153, 0.95);
-    box-shadow: 0 0 10px #00ccff;
+    background: rgb(0, 77, 153);
 }
 .thing.cantAfford {
-    opacity: 0.5;
-    filter: grayscale(50%);
+    opacity: 0.65;
 }
 .upgrade.cantAfford {
-    box-shadow: 0 0 8px rgba(0, 51, 102, 0.8);
-    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(0, 51, 102);
+    border-radius: 5px;
 }
 .upgrade.cantAfford:hover {
-    box-shadow: 0 0 12px rgba(0, 102, 204, 0.9);
+    box-shadow: 0 0 5px rgb(0, 102, 204);
 }
 .upgrade.owned, .achiev.owned {
-    background: rgba(0, 102, 204, 0.95);
-    color: #ffffff;
+    background: rgb(0, 102, 204);
 }
 .thing-text, .thing-costs {
     font-weight: bold;
-    text-shadow: 0 0 3px #00ccff;
 }
 
 .building {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     display: block;
     margin-right: 0;
-    font-size: 15px;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 102, 204, 0.3));
+    font-size: 14px;
 }
 
 .fullWidth {
@@ -131,34 +123,34 @@
     min-height: auto;
 }
 .fullWidth, .fullWidth:hover {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
-    box-shadow: 0 0 5px #0066cc;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 51, 102, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: none;
 }
 .fullWidth:before, .fullWidth:after {
     content: '';
-    height: 2px;
-    background: linear-gradient(to right, rgba(0, 153, 255, 0) 0%, rgba(0, 153, 255, 0.4) 50%, rgba(0, 153, 255, 0) 100%);
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 153, 255, 0) 0%, rgba(0, 153, 255, 0.25) 50%, rgba(0, 153, 255, 0) 100%);
     position: absolute;
     left: 0;
     right: 0;
     z-index: -1;
 }
 .fullWidth:before {
-    top: -2px;
+    top: -1px;
 }
 .fullWidth:after {
-    bottom: -2px;
+    bottom: -1px;
 }
 
 .fullWidth .thing-icon {
-    margin-top: -16px;
-    margin-bottom: -16px;
+    margin-top: -14px;
+    margin-bottom: -14px;
 }
 .fullWidth .thing-text {
-    margin-top: -5px;
-    margin-bottom: -5px;
+    margin-top: -4px;
+    margin-bottom: -4px;
 }
 
 #game.filtersOn .thing-icon {
-    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
 }
