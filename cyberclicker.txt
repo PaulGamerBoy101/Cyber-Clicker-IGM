@@ -10,7 +10,7 @@ Settings
     building cost increase:115%
     building cost refund:50%
     spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
-    stylesheet:https://cyber-clicker-version-2-9763704.codehs.me/style.css
+    stylesheet:https://raw.githubusercontent.com/PaulGamerBoy101/Cyber-Clicker-IGM/refs/heads/main/cyber.css
 
 Buttons
     *computerchipButton
